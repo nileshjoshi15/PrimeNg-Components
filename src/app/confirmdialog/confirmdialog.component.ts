@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {ConfirmationService} from 'primeng/api';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @Component({
@@ -11,21 +11,33 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 })
 export class ConfirmdialogComponent implements OnInit {
 
-  constructor(private confirmationService: ConfirmationService) {}
+  constructor(private confirmationService: ConfirmationService) {
+
+  }
   message:string;
-  confirm() {
+
+  confirmTest(){
+        var a;
         this.confirmationService.confirm({
             message: 'Are you sure that you want to perform this action?',
             accept: () => {
-                //Actual logic to perform a confirmation
-                this.message="yes"
+              this.message = 'OK';
             },reject: () => {
-                this.message="no"
+              this.message = 'NO';
             }
         });
+        return a;
     }
 
   ngOnInit() {
   }
 
+  test(){
+    this.confirmTest();
+    if(this.message==='OK'){
+      alert('it is ok');
+    }else{
+      alert('NO ok');
+    }
+  }
 }

@@ -11,4 +11,5 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  value:number;
 }
