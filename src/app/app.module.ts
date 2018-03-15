@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService} from 'primeng/api';
+import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfirmdialogComponent
   ],
   imports: [
     BrowserModule,
