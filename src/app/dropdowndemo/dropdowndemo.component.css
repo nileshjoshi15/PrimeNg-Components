@@ -1,0 +1,10 @@
+
+#demoDropDown{
+  width: 200px;
+  height: 50px;
+  background-color: red;
+}
+
+:host-context(.ddDemo) >>> .ui-dropdown{
+  width: 100% !important;
+}

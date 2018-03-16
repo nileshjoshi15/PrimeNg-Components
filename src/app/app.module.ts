@@ -7,25 +7,31 @@ import { AppComponent } from './app.component';
 
 import { DataTableModule} from 'primeng/datatable';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DropdownModule } from 'primeng/dropdown';
+
+
 import { ConfirmationService} from 'primeng/api';
 import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
 import { CurrencypipePipe } from './custompipe/currencypipe.pipe';
 import { CurrencyPipe } from '@angular/common';
 import { DatatabledemoComponent } from './datatabledemo/datatabledemo.component';
+import { DropdowndemoComponent } from './dropdowndemo/dropdowndemo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfirmdialogComponent,
     CurrencypipePipe,
-    DatatabledemoComponent
+    DatatabledemoComponent,
+    DropdowndemoComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ConfirmDialogModule,
-    DataTableModule
+    DataTableModule,
+    DropdownModule
   ],
   providers: [ConfirmationService,CurrencyPipe],
   bootstrap: [AppComponent]
