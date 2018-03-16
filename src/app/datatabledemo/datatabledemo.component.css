@@ -1,0 +1,5 @@
+
+
+:host-context(.boring) >>> .ui-datatable-data.ui-widget-content{
+  text-align: center;
+}
