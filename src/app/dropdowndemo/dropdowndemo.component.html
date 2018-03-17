@@ -3,10 +3,13 @@
 </p>
 
 <div class="demoDropDown">
-    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="label"></p-dropdown>
 </div>
 
 
 <div class="demoDropDown unique">
-    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+    <p-dropdown [options]="cities" [(ngModel)]="data['value']"></p-dropdown>
 </div>
+
+{{this.data['value']}}
+<br>

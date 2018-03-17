@@ -1,33 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../service/data.service';
+import { City } from '../service/city';
+import 'rxjs/add/operator/map'
+
 
 @Component({
   selector: 'app-dropdowndemo',
   templateUrl: './dropdowndemo.component.html',
-  styleUrls: ['./dropdowndemo.component.css']
+  styleUrls: ['./dropdowndemo.component.css'],
+  providers:[DataService,City]
 })
 export class DropdowndemoComponent implements OnInit {
-  selectedCity: City;
-
   cities:City[];
-
-
-  constructor() {
-    this.cities = [
-            {name: 'New York', code: 'NY'},
-            {name: 'Rome', code: 'RM'},
-            {name: 'London', code: 'LDN'},
-            {name: 'Istanbulfas fasfasdf', code: 'IST'},
-            {name: 'Paris', code: 'PRS'}
-        ];
-  }
+  constructor(private dataservice: DataService,private data:City) {}
 
   ngOnInit() {
+    this.dataservice.getLossType()
+                .subscribe(
+                  (res:City[])=>{
+                    this.cities=res;
+                    console.log(res);
+                    this.data=this.cities[2];
+                  },
+                  (error)=>console.log(error)
+                );
+
+
   }
 
-}
-
-
-interface City {
-  name: string;
-  code: string;
 }
