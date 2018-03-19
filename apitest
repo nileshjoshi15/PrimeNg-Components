@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
+using System.ComponentModel.DataAnnotations;
+
+namespace WebApiTest.Controllers
+{
+    [Route("api/[controller]")]
+    public class ValuesController : Controller
+    {
+        // GET api/values
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(GetEnum());
+        }
+        static IEnumerable<dataEnum> GetEnum()
+        {
+            foreach (LossType item in Enum.GetValues(typeof(LossType)))
+            {
+                string name = item.GetType().GetMember(item.ToString())
+                                            .First()
+                                            .GetCustomAttribute<DisplayAttribute>()
+                                            .GetName();
+                yield return new dataEnum { label = name, value= (int)item };
+            }
+        }
+    }
+
+        class dataEnum
+        {
+            public string label { get; set; }
+            public int value { get; set; }
+
+        }
+
+        enum LossType
+        {
+            [Display(Name = "Ground Cargo")]
+            Cargo = 1,
+
+            [Display(Name = "Ship Cargo")]
+            Ship = 2,
+
+            [Display(Name = "Air Cargo")]
+            Plane = 3
+        }
+}
